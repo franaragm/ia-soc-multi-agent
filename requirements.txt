@@ -1,0 +1,139 @@
+#########################################
+# Servidor web (API Backend)
+#########################################
+
+# Framework web moderno y de alto rendimiento para construir APIs REST
+# Muy usado para exponer LLMs, RAGs y agentes como servicios
+fastapi
+
+# Servidor ASGI recomendado para FastAPI
+# Incluye autoreload, soporte WebSockets y buen rendimiento en producción
+uvicorn[standard]
+
+#########################################
+# LangChain – Núcleo y utilidades
+#########################################
+
+# Framework principal de LangChain
+langchain
+
+# Componentes internos compartidos (schemas, runnables, messages)
+langchain-core
+
+# Separadores de texto optimizados
+langchain-text-splitters
+
+# Integración con OpenAI (SDK moderno)
+langchain-openai
+
+# Integración con Google Gemini (Google AI / GenAI)
+langchain-google-genai
+
+# Integraciones mantenidas por la comunidad
+langchain-community
+
+# Integración oficial LangChain ↔ Chroma
+# Expone la clase Chroma como Vector Store moderno (sin warnings)
+langchain-chroma
+
+
+#########################################
+# Modelos LLM y Embeddings
+#########################################
+
+# SDK oficial de OpenAI
+openai
+
+# Modelos de embeddings locales (MiniLM, MPNet, BGE, etc.)
+sentence-transformers
+
+
+#########################################
+# Vector Database (RAG)
+#########################################
+
+# Base de datos vectorial Chroma
+# Backend real usado por langchain-chroma
+chromadb
+
+
+#########################################
+# Frontend / UI
+#########################################
+
+# Interfaz web para aplicaciones Python
+streamlit
+
+# Componentes de chat tipo burbujas para Streamlit (opcional)
+streamlit-chat
+
+
+#########################################
+# Utilidades y helpers
+#########################################
+
+# Carga de variables de entorno desde .env
+python-dotenv
+
+# Validación de datos y modelos (requerido por LangChain)
+pydantic
+
+# Cliente HTTP moderno (sync + async)
+httpx
+
+# Validación de correos electrónicos (usado por Pydantic)
+email-validator
+
+
+#########################################
+# Procesamiento de PDFs
+#########################################
+
+# Lectura y parsing de PDFs
+# Usado por loaders de LangChain (PyPDFLoader, etc.)
+pypdf
+
+
+#########################################
+# Scraping Web
+#########################################
+
+# Cliente HTTP síncrono
+requests
+
+# Parser HTML para scraping
+beautifulsoup4
+
+
+#########################################
+# LangGraph – Orquestación de agentes
+#########################################
+
+# Framework de orquestación de agentes y workflows
+langgraph
+
+# Observabilidad, tracing y debugging
+langsmith
+
+# Persistencia de estado y checkpoints para LangGraph
+langgraph-checkpoint
+
+# Framework para supervisión y coordinación de múltiples agentes
+# Permite crear arquitecturas tipo supervisor-worker, multi-agent orchestration
+langgraph-supervisor
+
+# Persistencia de estado usando SQLite para LangGraph
+langgraph-checkpoint-sqlite
+
+
+#########################################
+# NOTA – Librería estándar de Python
+#########################################
+# Los siguientes imports NO requieren dependencias externas:
+#
+# import uuid
+# import sqlite3
+# import logging
+#
+# Forman parte de la librería estándar de Python
+#########################################
