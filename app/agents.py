@@ -1,20 +1,15 @@
-from langchain_openai import ChatOpenAI
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
+from app.services.llm_client import llm_chain_openai
 from tools import search_tool, virustotal_checker, gmail_tools
-from config import config
 
 # Inicializar LLM
-llm = ChatOpenAI(
-    model="gpt-4o-mini",
-    api_key=config.OPENAI_API_KEY,
-    temperature=0.1
-)
+llm = llm_chain_openai()
 
 # Agente 1: Analisis de Alertas 
-alert_analyzer = create_react_agent(
+alert_analyzer = create_agent(
     model=llm,
     tools=[search_tool, virustotal_checker],
-    prompt="""Eres un analista de seguridad SOC especializado en análisis inicial de alertas.
+    system_prompt="""Eres un analista de seguridad SOC especializado en análisis inicial de alertas.
     
     HERRAMIENTAS DISPONIBLES:
     - tavily_search_results_json: Búsqueda web en tiempo real para contexto de amenazas
@@ -51,10 +46,10 @@ alert_analyzer = create_react_agent(
 )
 
 # Agente 2: Analisis de Amenazas y Mitigaciones
-threat_analyzer = create_react_agent(
+threat_analyzer = create_agent(
     model=llm,
     tools=[search_tool],
-    prompt="""Eres un experto en análisis de amenazas y respuesta a incidentes del SOC.
+    system_prompt="""Eres un experto en análisis de amenazas y respuesta a incidentes del SOC.
     
     HERRAMIENTAS DISPONIBLES:
     - tavily_search_results_json: Búsqueda de TTPs, técnicas de ataque, y mitigación
@@ -100,10 +95,10 @@ threat_analyzer = create_react_agent(
 )
 
 # Agente 3: Notificaciones
-notification_agent = create_react_agent(
+notification_agent = create_agent(
     model=llm,
     tools=gmail_tools,
-    prompt="""Eres el especialista en comunicaciones y notificaciones del SOC.
+    system_prompt="""Eres el especialista en comunicaciones y notificaciones del SOC.
     
     HERRAMIENTAS DISPONIBLES (GmailToolkit):
     - gmail_send_message: Envía emails directamente usando Gmail API
