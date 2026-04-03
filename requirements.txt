@@ -125,6 +125,15 @@ langgraph-supervisor
 # Persistencia de estado usando SQLite para LangGraph
 langgraph-checkpoint-sqlite
 
+#########################################
+# 🔐 Threat Intelligence & Tools (NUEVO)
+#########################################
+
+# VirusTotal API oficial
+vt-py
+
+# Tavily search (reemplazo correcto de langchain_tavily)
+tavily-python
 
 #########################################
 # NOTA – Librería estándar de Python

@@ -1,23 +1,18 @@
-from langchain_openai import ChatOpenAI
+from app.services.llm_client import llm_chain_openai
 from langgraph_supervisor import create_supervisor
 from agents import alert_analyzer, threat_analyzer, notification_agent
 from config import config
 from datetime import datetime
 import json
 
-# Inicializar el modelo para el supervisor
-supervisor_model = ChatOpenAI(
-    model="gpt-4o-mini",
-    api_key=config.OPENAI_API_KEY,
-    temperature=0.1
-)
+llm = llm_chain_openai()
 
 def build_soc_workflow():
 
     # Crear el supervisor multiagente 
     supervisor = create_supervisor(
         agents=[alert_analyzer, threat_analyzer, notification_agent],
-        model=supervisor_model,
+        model=llm,
         prompt="""Eres el supervisor del SOC que coordina EXACTAMENTE 3 pasos secuenciales.
 
 AGENTES DISPONIBLES:

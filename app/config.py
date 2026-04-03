@@ -9,17 +9,15 @@ class Config:
     TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
     VIRUSTOTAL_API_KEY = os.getenv("VIRUSTOTAL_API_KEY")
     
-    # Gmail Configuration
-    GMAIL_CREDENTIALS_FILE = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-    GMAIL_TOKEN_FILE = os.getenv("GMAIL_TOKEN")
+    # Mailtrap Configuration
+    MAILTRAP_SMTP_HOST = os.getenv("MAILTRAP_SMTP_HOST", "sandbox.smtp.mailtrap.io")
+    MAILTRAP_SMTP_PORT = int(os.getenv("MAILTRAP_SMTP_PORT", 2525))
+    MAILTRAP_USERNAME = os.getenv("MAILTRAP_USERNAME")
+    MAILTRAP_PASSWORD = os.getenv("MAILTRAP_PASSWORD")
     
     # SOC Email Configuration
     SOC_EMAIL_RECIPIENT = os.getenv("SOC_EMAIL_RECIPIENT")
     SOC_EMAIL_SENDER = os.getenv("SOC_EMAIL_SENDER")
-    
-    # APIs opcionales para Threat Intelligence
-    # ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY")
-    # URLVOID_API_KEY = os.getenv("URLVOID_API_KEY")
     
     # Configuración del SOC
     WEBHOOK_PORT = 8000
@@ -31,7 +29,9 @@ class Config:
         required_keys = [
             ("OPENAI_API_KEY", cls.OPENAI_API_KEY),
             ("TAVILY_API_KEY", cls.TAVILY_API_KEY),
-            ("VIRUSTOTAL_API_KEY", cls.VIRUSTOTAL_API_KEY)
+            ("VIRUSTOTAL_API_KEY", cls.VIRUSTOTAL_API_KEY),
+            ("MAILTRAP_USERNAME", cls.MAILTRAP_USERNAME),
+            ("MAILTRAP_PASSWORD", cls.MAILTRAP_PASSWORD),
         ]
        
         missing_keys = [key for key, value in required_keys if not value]
