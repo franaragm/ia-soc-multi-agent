@@ -1,148 +1,100 @@
 #########################################
-# Servidor web (API Backend)
+# SOC Multi-Agent Core Dependencies
 #########################################
 
+# ========== WEB FRAMEWORK ==========
 # Framework web moderno y de alto rendimiento para construir APIs REST
-# Muy usado para exponer LLMs, RAGs y agentes como servicios
 fastapi
-
-# Servidor ASGI recomendado para FastAPI
-# Incluye autoreload, soporte WebSockets y buen rendimiento en producción
+# Servidor ASGI recomendado para FastAPI (con autoreload y WebSockets)
 uvicorn[standard]
 
-#########################################
-# LangChain – Núcleo y utilidades
-#########################################
-
-# Framework principal de LangChain
+# ========== LLM & AI FRAMEWORK ==========
+# Framework principal de LangChain para agentes y workflows
 langchain
-
-# Componentes internos compartidos (schemas, runnables, messages)
+# Componentes internos compartidos de LangChain
 langchain-core
-
-# Separadores de texto optimizados
+# Separadores de texto optimizados para procesamiento de documentos
 langchain-text-splitters
-
-# Integración con OpenAI (SDK moderno)
+# Integración oficial con OpenAI
 langchain-openai
-
-# Integración con Google Gemini (Google AI / GenAI)
+# Integración con Google Gemini
 langchain-google-genai
-
 # Integraciones mantenidas por la comunidad
 langchain-community
 
-# Integración oficial LangChain ↔ Chroma
-# Expone la clase Chroma como Vector Store moderno (sin warnings)
-langchain-chroma
-
-
-#########################################
-# Modelos LLM y Embeddings
-#########################################
-
+# ========== LLM PROVIDERS ==========
 # SDK oficial de OpenAI
 openai
-
 # Modelos de embeddings locales (MiniLM, MPNet, BGE, etc.)
 sentence-transformers
 
+# ========== ORCHESTRATION & WORKFLOWS ==========
+# Framework de orquestación de agentes y workflows
+langgraph
+# Framework para supervisión y coordinación de múltiples agentes
+langgraph-supervisor
+# Persistencia de estado y checkpoints para LangGraph
+langgraph-checkpoint
+# Persistencia SQLite específica para LangGraph
+langgraph-checkpoint-sqlite
+# Observabilidad, tracing y debugging para LangGraph
+langsmith
 
-#########################################
-# Vector Database (RAG)
-#########################################
+# ========== DATABASE & PERSISTENCE ==========
+# ORM moderno para Python (SQLAlchemy 2.0)
+sqlalchemy
 
-# Base de datos vectorial Chroma
-# Backend real usado por langchain-chroma
+# ========== VECTOR DATABASE (RAG) ==========
+# Base de datos vectorial Chroma para RAG
 chromadb
+# Integración oficial LangChain ↔ Chroma
+langchain-chroma
 
-
-#########################################
-# Frontend / UI
-#########################################
-
-# Interfaz web para aplicaciones Python
+# ========== USER INTERFACE ==========
+# Framework web para aplicaciones de datos en Python
 streamlit
-
-# Componentes de chat tipo burbujas para Streamlit (opcional)
+# Componentes de chat para Streamlit (opcional)
 streamlit-chat
 
-
-#########################################
-# Utilidades y helpers
-#########################################
-
-# Carga de variables de entorno desde .env
-python-dotenv
-
-# Validación de datos y modelos (requerido por LangChain)
-pydantic
-
+# ========== HTTP CLIENTS & NETWORKING ==========
+# Cliente HTTP síncrono (requests)
+requests
 # Cliente HTTP moderno (sync + async)
 httpx
 
-# Validación de correos electrónicos (usado por Pydantic)
+# ========== DATA VALIDATION & PARSING ==========
+# Validación de datos y modelos Pydantic (requerido por LangChain)
+pydantic
+# Validación de correos electrónicos
 email-validator
-
-
-#########################################
-# Procesamiento de PDFs
-#########################################
-
-# Lectura y parsing de PDFs
-# Usado por loaders de LangChain (PyPDFLoader, etc.)
+# Procesamiento y parsing de PDFs
 pypdf
-
-
-#########################################
-# Scraping Web
-#########################################
-
-# Cliente HTTP síncrono
-requests
-
-# Parser HTML para scraping
+# Parser HTML para web scraping
 beautifulsoup4
 
+# ========== UTILITIES & HELPERS ==========
+# Carga de variables de entorno desde archivos .env
+python-dotenv
+# Reintentos y backoff exponencial para llamadas API
+tenacity
 
-#########################################
-# LangGraph – Orquestación de agentes
-#########################################
-
-# Framework de orquestación de agentes y workflows
-langgraph
-
-# Observabilidad, tracing y debugging
-langsmith
-
-# Persistencia de estado y checkpoints para LangGraph
-langgraph-checkpoint
-
-# Framework para supervisión y coordinación de múltiples agentes
-# Permite crear arquitecturas tipo supervisor-worker, multi-agent orchestration
-langgraph-supervisor
-
-# Persistencia de estado usando SQLite para LangGraph
-langgraph-checkpoint-sqlite
-
-#########################################
-# 🔐 Threat Intelligence & Tools (NUEVO)
-#########################################
-
-# VirusTotal API oficial
+# ========== THREAT INTELLIGENCE & SECURITY TOOLS ==========
+# API oficial de VirusTotal para análisis de IOCs
 vt-py
-
-# Tavily search (reemplazo correcto de langchain_tavily)
+# Búsqueda web inteligente para agentes AI
 tavily-python
+
+# ========== TESTING ==========
+# Framework de testing moderno para Python
+pytest
 
 #########################################
 # NOTA – Librería estándar de Python
 #########################################
 # Los siguientes imports NO requieren dependencias externas:
 #
-# import uuid
-# import sqlite3
-# import logging
+# import uuid, sqlite3, logging, json, datetime, asyncio
+# import ipaddress, re, collections, typing, pathlib
 #
-# Forman parte de la librería estándar de Python
+# Todos forman parte de la librería estándar de Python 3.8+
 #########################################
