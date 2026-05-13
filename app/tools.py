@@ -68,11 +68,13 @@ def virustotal_checker(indicator: str, indicator_type: str) -> str:
             else:
                 threat_level = "LIMPIO"
 
-            return f"""ANALISIS VIRUSTOTAL:
-Indicador: {indicator}
-Detecciones: {malicious}/{total} maliciosas, {suspicious}/{total} sospechosas
-Clasificacion: {threat_level}
-Análisis: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"""
+            return f"""
+            ANALISIS VIRUSTOTAL:
+                Indicador: {indicator}
+                Detecciones: {malicious}/{total} maliciosas, {suspicious}/{total} sospechosas
+                Clasificacion: {threat_level}
+                Análisis: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+            """
     
     except Exception as e:
         return f"Error VirusTotal: {str(e)}"

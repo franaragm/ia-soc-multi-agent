@@ -49,6 +49,7 @@ huggingface_hub==1.4.1
 idna==3.11
 importlib_metadata==8.7.1
 importlib_resources==6.5.2
+iniconfig==2.3.0
 Jinja2==3.1.6
 jiter==0.13.0
 joblib==1.5.3
@@ -98,6 +99,7 @@ overrides==7.7.0
 packaging==26.0
 pandas==2.3.3
 pillow==12.1.1
+pluggy==1.6.0
 posthog==5.4.0
 propcache==0.4.1
 protobuf==6.33.5
@@ -106,14 +108,15 @@ pyasn1==0.6.2
 pyasn1_modules==0.4.2
 pybase64==1.4.3
 pycparser==3.0
-pydantic==2.12.5
+pydantic==2.13.4
 pydantic-settings==2.13.0
-pydantic_core==2.41.5
+pydantic_core==2.46.4
 pydeck==0.9.1
 Pygments==2.19.2
 pypdf==6.7.1
 PyPika==0.51.1
 pyproject_hooks==1.2.0
+pytest==9.0.3
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.1
 pytz==2025.2
